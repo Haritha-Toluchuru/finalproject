@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Smart Fruit Profiling System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 font-sans">
+  <nav class="bg-green-800 text-white py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="text-2xl font-bold">
+        <a href="{{ url_for('home') }}" class="hover:text-green-200 transition duration-300">FruitAI</a>
+      </div>
+      <ul class="flex space-x-6 items-center">
+        <li><a href="{{ url_for('home') }}" class="text-green-200 border-b-2 border-green-200 transition duration-300">Home</a></li>
+        <li class="relative group">
+        </li>
+        <li><a href="{{ url_for('login') }}" class="hover:text-green-200 transition duration-300">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="bg-green-700 text-white text-center py-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold px-6">
+      Welcome to Your Smart Fruit Profiling Dashboard
+    </h1>
+    <p class="text-xl mt-3 px-6">
+      Analyze fruits with cutting-edge AI technology
+    </p>
+  </header>
+
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Your Fruit Analysis Tools</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        Use our advanced deep learning and computer vision tools to profile and analyze fruits with precision. Choose an option below to get started.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        
+        <div class="relative bg-white rounded-xl shadow-xl overflow-hidden">
+          <img class="w-full h-56 object-cover" src="static\images\2880205.jpg" alt="Upload Prediction">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Upload Image</h3>
+            <p class="text-gray-600 mt-2">Upload an image of a fruit to analyze its type, ripeness, and nutritional content.</p>
+            <a href="{{ url_for('image_upload') }}" class="inline-block mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">Start Upload</a>
+          </div>
+        </div>
+
+        
+        <div class="relative bg-white rounded-xl shadow-xl overflow-hidden">
+          <img class="w-full h-56 object-cover" src="static\images\image_3.jpg" alt="Live Prediction">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Live Analysis</h3>
+            <p class="text-gray-600 mt-2">Use real-time camera input to detect and analyze fruits instantly.</p>
+            <a href="{{url_for('image_live')}}" class="inline-block mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">Start Live</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Fruit Rippen Detection</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        Use our advanced deep learning and computer vision tools to profile and analyze fruit's condition. Choose an option below to get started.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        
+        <div class="relative bg-white rounded-xl shadow-xl overflow-hidden">
+          <img class="w-full h-56 object-cover" src="static\images\2776945.jpg" alt="Upload Prediction">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Upload Image</h3>
+            <p class="text-gray-600 mt-2">Upload an image of a fruit to analyze its type, ripeness</p>
+            <a href="{{ url_for('image_upload1') }}" class="inline-block mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">Start Upload</a>
+          </div>
+        </div>
+
+        
+        <div class="relative bg-white rounded-xl shadow-xl overflow-hidden">
+          <img class="w-full h-56 object-cover" src="static\images\image_1.jpg" alt="Live Prediction">
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Live Analysis</h3>
+            <p class="text-gray-600 mt-2">Use real-time camera input to detect and analyze fruit's condition instantly.</p>
+            <a href="{{url_for('image_live1')}}" class="inline-block mt-4 bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition duration-300">Start Live</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-green-700 text-white text-center py-8">
+    <p>&copy; 2025 Smart Fruit Profiling System. Powered by AI Innovation.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Detection - Smart Fruit Profiling System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 font-sans">
+  <nav class="bg-green-800 text-white py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="text-2xl font-bold">
+        <a href="{{ url_for('home') }}" class="hover:text-green-200 transition duration-300">FruitAI</a>
+      </div>
+      <ul class="flex space-x-6">
+        <li><a href="{{ url_for('home') }}" class="hover:text-green-200 transition duration-300">Home</a></li>
+        <li><a href="{{url_for('image_live1')}}" class="hover:text-green-200 transition duration-300">Live</a></li>
+        <li><a href="{{url_for('login')}}" class="hover:text-green-200 transition duration-300">Log - Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="bg-green-700 text-white text-center py-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold px-6">
+      Live Fruit Rippen Detection
+    </h1>
+    <p class="text-xl mt-3 px-6">
+      Click below to start detection using your camera
+    </p>
+  </header>
+
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <div class="relative bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto p-6">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Start Live Detection</h2>
+        
+        <form method="POST" action="{{ url_for('image_live1') }}">
+          <div class="mb-6 text-center">
+            <p class="text-gray-700 mb-4">Click the button below to open the live detection window.</p>
+            <p class="text-sm text-gray-500 mb-4">Note: This will open a separate window with camera feed.</p>
+          </div>
+          <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">
+            Start Live Detection
+          </button>
+        </form>
+        
+        <!-- Instructions for the user -->
+        <div class="mt-6 p-4 bg-green-50 rounded-lg">
+          <h3 class="font-semibold text-green-800 mb-2">How it works:</h3>
+          <ul class="text-sm text-green-700 list-disc pl-5">
+            <li>Click the button above to start live detection</li>
+            <li>A new window will open with your camera feed</li>
+            <li>Show fruits/vegetables to the camera</li>
+            <li>The system will detect and draw bounding boxes around them</li>
+            <li>Press 'q' in the detection window to close it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal for showing the camera feed with detected classes and calories -->
+  <div id="cameraModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+    <div class="bg-white rounded-xl p-6 max-w-4xl w-full mx-4">
+      <div class="flex justify-between items-center mb-4">
+        <h3 class="text-xl font-bold text-gray-800">Live Detection</h3>
+        <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex">
+        <div class="aspect-video bg-gray-200 rounded-lg flex items-center justify-center w-2/3">
+          <img src="{{ url_for('image_live1') }}" width="640" height="480" class="w-full h-full object-cover">
+        </div>
+      </div>
+      <div class="mt-4 text-center">
+        <p class="text-sm text-gray-600">Press 'q' in the detection window to close it</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('closeModal').addEventListener('click', function() {
+      document.getElementById('cameraModal').classList.add('hidden');
+    });
+  </script>
+</body>
+</html>

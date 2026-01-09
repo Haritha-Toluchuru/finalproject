@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Smart Fruit Profiling System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 font-sans">
+  <nav class="bg-green-800 text-white py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="text-2xl font-bold">
+        <a href="{{url_for('index')}}" class="hover:text-green-200 transition duration-300">FruitAI</a>
+      </div>
+      <ul class="flex space-x-6">
+        <li><a href="{{url_for('index')}}" class="hover:text-green-200 transition duration-300">Home</a></li>
+        <li><a href="{{url_for('about')}}" class="text-green-200 border-b-2 border-green-200 transition duration-300">About</a></li>
+        <li><a href="{{url_for('login')}}" class="hover:text-green-200 transition duration-300">Login</a></li>
+        <li><a href="{{url_for('register')}}" class="hover:text-green-200 transition duration-300">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="bg-green-700 text-white text-center py-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold px-6">
+      About Our Smart Fruit Profiling System
+    </h1>
+    <p class="text-xl mt-3 px-6">
+      Leveraging deep learning and computer vision techniques
+    </p>
+  </header>
+
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Our Technology</h2>
+      <div class="relative bg-white rounded-xl shadow-xl overflow-hidden max-w-4xl mx-auto flex flex-col md:flex-row">
+        <div class="p-6 flex-1">
+          <p class="text-gray-600 text-justify">
+            The Smart Fruit Detection System harnesses YOLOv9 algorithms to revolutionize fruit analysis through deep learning and computer vision. It identifies fruit types, including apple, banana, mango, kiwi, and more, from simple image inputs, estimating weight and caloric content. The system also detects ripeness stages ripe, unripe, overripe, or rotten for fruits like grapes, oranges, and peaches, ensuring precise quality assessment. Utilizing a robust dataset from Roboflow, it supports over 30 fruit and vegetable types, such as bitter melon, cauliflower, and watermelon. Built with a front-end of HTML, CSS, and JavaScript, and a Python-based back-end on Flask within Google Colab, the system offers modules for home, registration, login, fruit detection, ripeness detection, and logout. This technology streamlines quality control and classification, delivering efficient, real-time solutions for agricultural and commercial applications.
+          </p>
+        </div>
+        <div class="md:w-1/3 flex items-center justify-center p-6">
+          <img class="w-full max-w-xs md:max-w-sm object-contain rounded-lg" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExODlkOXczbmR1amZoNTEwdTJ5cWFjM2xyeHcxM294OXR4ZnIzcno4NyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0AAFzHQAtyhVKPzLUm/giphy.gif" alt="Fruit Animation">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-green-700 text-white text-center py-8">
+    <p>&copy; 2025 Smart Fruit Profiling System. Powered by AI Innovation.</p>
+  </footer>
+</body>
+</html>

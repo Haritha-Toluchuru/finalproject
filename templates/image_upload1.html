@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image Upload - Smart Fruit Profiling System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 font-sans">
+  <nav class="bg-green-800 text-white py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="text-2xl font-bold">
+        <a href="{{ url_for('home') }}" class="hover:text-green-200 transition duration-300">FruitAI</a>
+      </div>
+      <ul class="flex space-x-6">
+        <li><a href="{{ url_for('home') }}" class="hover:text-green-200 transition duration-300">Home</a></li>
+        <li><a href="{{ url_for('image_live1') }}" class="hover:text-green-200 transition duration-300">Live</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="bg-green-700 text-white text-center py-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold px-6">
+      Upload Image for Fruit Rippen Detection
+    </h1>
+    <p class="text-xl mt-3 px-6">
+      Upload an image to detect fruit's condition
+    </p>
+  </header>
+
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <div class="relative bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto p-6">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Upload Your Image</h2>
+        {% if error %}
+          <p class="text-red-500 text-center mb-4">{{ error }}</p>
+        {% endif %}
+        <form method="POST" action="{{ url_for('image_upload1') }}" enctype="multipart/form-data">
+          <div class="mb-6">
+            <label for="image" class="block text-gray-700 font-semibold mb-2">Select Image</label>
+            <input type="file" id="image" name="image" accept="image/*" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required />
+          </div>
+          <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">Analyze Image</button>
+        </form>
+      </div>
+
+      {% if img_data %}
+      <div class="mt-10 bg-white rounded-xl shadow-xl overflow-hidden max-w-4xl mx-auto p-6">
+        <h3 class="text-xl font-semibold text-center text-gray-800 mb-4">Detection Results</h3>
+        <div class="mb-6 text-center">
+          <img src="data:image/png;base64,{{ img_data }}" alt="Image with Bounding Boxes" class="inline-block max-w-full rounded-lg shadow-lg" />
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+</body>
+</html>

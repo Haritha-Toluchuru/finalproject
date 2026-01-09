@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Smart Fruit Profiling System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 font-sans">
+  <nav class="bg-green-800 text-white py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="text-2xl font-bold">
+        <a href="{{ url_for('index') }}" class="hover:text-green-200 transition duration-300">FruitAI</a>
+      </div>
+      <ul class="flex space-x-6">
+        <li><a href="{{ url_for('index') }}" class="hover:text-green-200 transition duration-300">Home</a></li>
+        <li><a href="{{ url_for('about') }}" class="hover:text-green-200 transition duration-300">About</a></li>
+        <li><a href="{{ url_for('login') }}" class="text-green-200 border-b-2 border-green-200 transition duration-300">Login</a></li>
+        <li><a href="{{ url_for('register') }}" class="hover:text-green-200 transition duration-300">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="bg-green-700 text-white text-center py-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold px-6">
+      Login to Your Account
+    </h1>
+    <p class="text-xl mt-3 px-6">
+      Access the Smart Fruit Profiling System
+    </p>
+  </header>
+
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <div class="relative bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto p-6">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Sign In</h2>
+        {% if message %}
+          <p class="text-red-500 text-center mb-4">{{ message }}</p>
+        {% endif %}
+        <form method="POST" action="{{ url_for('login') }}">
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+          </div>
+          <div class="mb-6">
+            <label for="password" class="block text-gray-700 font-semibold mb-2">Password</label>
+            <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+          </div>
+          <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">Login</button>
+        </form>
+        <p class="text-center text-gray-600 mt-4">
+          Don't have an account? <a href="{{ url_for('register') }}" class="text-green-600 hover:underline">Register here</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-green-700 text-white text-center py-8">
+    <p>&copy; 2025 Smart Fruit Profiling System. Powered by AI Innovation.</p>
+  </footer>
+</body>
+</html>

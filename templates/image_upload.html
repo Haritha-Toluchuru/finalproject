@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Upload - Smart Fruit Profiling System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 font-sans">
+  <nav class="bg-green-800 text-white py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="text-2xl font-bold">
+        <a href="{{ url_for('home') }}" class="hover:text-green-200 transition duration-300">FruitAI</a>
+      </div>
+      <ul class="flex space-x-6">
+        <li><a href="{{ url_for('home') }}" class="hover:text-green-200 transition duration-300">Home</a></li>
+        <li><a href="{{url_for('image_live')}}" class="hover:text-green-200 transition duration-300">Live</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="bg-green-700 text-white text-center py-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold px-6">
+      Upload Image for Fruit Analysis
+    </h1>
+    <p class="text-xl mt-3 px-6">
+      Upload an image to detect fruits and vegetables
+    </p>
+  </header>
+
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <div class="relative bg-white rounded-xl shadow-xl overflow-hidden max-w-md mx-auto p-6">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Upload Your Image</h2>
+        {% if error %}
+          <p class="text-red-500 text-center mb-4">{{ error }}</p>
+        {% endif %}
+        <form method="POST" action="{{ url_for('image_upload') }}" enctype="multipart/form-data">
+          <div class="mb-6">
+            <label for="file" class="block text-gray-700 font-semibold mb-2">Select Image</label>
+            <input type="file" id="file" name="file" accept="image/*" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" required>
+          </div>
+          <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300">Analyze Image</button>
+        </form>
+      </div>
+
+      {% if success %}
+      <div class="mt-10 bg-white rounded-xl shadow-xl overflow-hidden max-w-4xl mx-auto p-6">
+        <h3 class="text-xl font-semibold text-center text-gray-800 mb-4">Detection Results</h3>
+        {% if image_path %}
+        <div class="mb-6">
+          <h4 class="text-lg font-semibold text-gray-800 mb-2">Image with Detected Objects</h4>
+          <img src="{{ url_for('static', filename='uploads/' + image_path) }}" alt="Image with Bounding Boxes" class="w-full h-auto rounded-lg">
+        </div>
+        {% endif %}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {% for item in detected_items %}
+          <div class="p-4 bg-gray-50 rounded-lg">
+            <p class="text-gray-600"><strong>Detected Item:</strong> {{ item.class_name }}</p>
+            <p class="text-gray-600"><strong>Calories (per 100g):</strong> {{ item.calories }}</p>
+            <p class="text-gray-600"><strong>Average Weight (g):</strong> {{ item.weight }}</p>
+            <p class="text-gray-600"><strong>Description:</strong> {{ item.description }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+</body>
+</html>

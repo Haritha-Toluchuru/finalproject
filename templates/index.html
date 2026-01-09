@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Machine Learning-based Smart Fruit Profiling System, leverages deep learning and computer vision techniques</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-green-50 font-sans">
+  <nav class="bg-green-800 text-white py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <div class="text-2xl font-bold">
+        <a href="{{url_for('index')}}" class="hover:text-green-200 transition duration-300">FruitAI</a>
+      </div>
+      <ul class="flex space-x-6">
+        <li><a href="{{url_for('index')}}" class="hover:text-green-200 transition duration-300">Home</a></li>
+        <li><a href="{{url_for('about')}}" class="hover:text-green-200 transition duration-300">About</a></li>
+        <li><a href="{{url_for('login')}}" class="hover:text-green-200 transition duration-300">Login</a></li>
+        <li><a href="{{url_for('register')}}" class="hover:text-green-200 transition duration-300">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="bg-green-700 text-white text-center py-10">
+    <h1 class="text-4xl md:text-5xl font-extrabold px-6">
+      A Machine Learning-based Smart Fruit Detection System
+    </h1>
+    <p class="text-xl mt-3 px-6">
+      Leverages deep learning and computer vision techniques
+    </p>
+  </header>
+
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Discover Precision Fruit Analysis</h2>
+      <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
+        Harnessing the power of deep learning and computer vision, our system delivers unparalleled accuracy in fruit profiling, quality assessment, and classification.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Video 1 -->
+        <div class="relative bg-white rounded-xl shadow-xl overflow-hidden">
+          <video class="w-full h-56 object-cover" autoplay muted loop>
+            <source src="static\videos\video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Quality Detection</h3>
+            <p class="text-gray-600 mt-2">Identify fruit quality with high precision using advanced algorithms.</p>
+          </div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="relative bg-white rounded-xl shadow-xl overflow-hidden">
+            <img class="w-full h-56 object-cover" src="static\images\AI.jpg" alt="Real-Time Processing">
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800">Real-Time Processing</h3>
+              <p class="text-gray-600 mt-2">Analyze fruits in real-time for efficient workflows.</p>
+            </div>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="relative bg-white rounded-xl shadow-xl overflow-hidden">
+          <video class="w-full h-56 object-cover" autoplay muted loop>
+            <source src="static\videos\machine learning.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800">Deep learning</h3>
+            <p class="text-gray-600 mt-2">Streamline fruit with intelligent classification.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-green-700 text-white text-center py-8">
+    <p>&copy; 2025 Smart Fruit Profiling System. Powered by AI Innovation.</p>
+  </footer>
+</body>
+</html>
